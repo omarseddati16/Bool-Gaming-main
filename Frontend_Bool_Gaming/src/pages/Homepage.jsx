@@ -2,17 +2,19 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom";
 
+
 const Homepage = () => {
 
   const [videogame, setVideogame] = useState([]);
   const [chip, setChip] = useState([]);
   const [forKid, setForKid] = useState([]);
   const naviga = useNavigate();
-  const API_URL = process.env.REACT_APP_API_URL
+  const API_URL = import.meta.env.VITE_API_URL;
+  console.log("API_URL:", API_URL);
 
   useEffect(() => {
     axios
-      .get(`http://${API_URL}/videogames`)
+      .get(`${API_URL}/videogames`)
       .then(response => {
         const data = response.data;
         setVideogame(data);
