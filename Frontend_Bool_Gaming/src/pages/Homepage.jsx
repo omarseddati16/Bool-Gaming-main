@@ -11,7 +11,7 @@ const Homepage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/videogames")
+      .get("http://bool-gaming-main-production.up.railway.app/videogames")
       .then(response => {
         const data = response.data;
         setVideogame(data);

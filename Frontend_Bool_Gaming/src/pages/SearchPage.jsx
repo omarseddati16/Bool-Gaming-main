@@ -9,7 +9,7 @@ const SearchPage = () => {
   const naviga = useNavigate();
 
   const fetchVideogames = () => {
-    axios.get("http://localhost:3000/videogames")
+    axios.get("http://bool-gaming-main-production.up.railway.app/videogames")
       .then((resp) => {
         setVideogames(resp.data);
       })
