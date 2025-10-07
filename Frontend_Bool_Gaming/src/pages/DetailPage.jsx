@@ -10,7 +10,7 @@ const DetailPage = () => {
 
 
   const fetchVideogame = () => {
-    axios.get(`http://localhost:3000/videogames`)
+    axios.get(`http://switchyard.proxy.rlwy.net/videogames`)
       .then(res => {
         const found = res.data.find(f => f.slug === slug);
         setVideogame(found);
