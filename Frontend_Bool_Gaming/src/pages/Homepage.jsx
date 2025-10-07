@@ -8,10 +8,11 @@ const Homepage = () => {
   const [chip, setChip] = useState([]);
   const [forKid, setForKid] = useState([]);
   const naviga = useNavigate();
+  const API_URL = process.env.REACT_APP_API_URL
 
   useEffect(() => {
     axios
-      .get("http://bool-gaming-main-production.up.railway.app/videogames")
+      .get(`${API_URL}/videogames`)
       .then(response => {
         const data = response.data;
         setVideogame(data);
@@ -52,7 +53,7 @@ const Homepage = () => {
               <div className="col-12 col-md-6 col-lg-4 text-center" key={c.id}>
                 <div className="card">
                   <Link to={`/detailpage/${c.slug}`}>
-                    <img src={`http://localhost:3000/img/videogames/${c.image}`} className="card-img-top" style={{ height: "400px", width: "100%" }} />
+                    <img src={`http://${API_URL}/img/videogames/${c.image}`} className="card-img-top" style={{ height: "400px", width: "100%" }} />
                     <div className="card-body">
                       <p className="card-text"><strong>{c.title}</strong></p>
                       <p className="card-text"><strong>Price:</strong> {c.price}€</p>
@@ -75,7 +76,7 @@ const Homepage = () => {
               <div className="col-12 col-md-6 col-lg-4 text-center" key={c.id}>
                 <div className="card">
                   <Link to={`/detailpage/${c.slug}`}>
-                    <img src={`http://localhost:3000/img/videogames/${c.image}`} className="card-img-top" style={{ height: "400px", width: "100%" }} />
+                    <img src={`http://${API_URL}/img/videogames/${c.image}`} className="card-img-top" style={{ height: "400px", width: "100%" }} />
                     <div className="card-body">
                       <p className="card-text"><strong>{c.title}</strong></p>
                       <p className="card-text"><strong>Price:</strong> {c.price}€</p>
