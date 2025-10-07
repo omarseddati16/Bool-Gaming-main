@@ -12,7 +12,7 @@ const Homepage = () => {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/videogames`)
+      .get(`http://${API_URL}/videogames`)
       .then(response => {
         const data = response.data;
         setVideogame(data);
@@ -53,7 +53,7 @@ const Homepage = () => {
               <div className="col-12 col-md-6 col-lg-4 text-center" key={c.id}>
                 <div className="card">
                   <Link to={`/detailpage/${c.slug}`}>
-                    <img src={`http://${API_URL}/img/videogames/${c.image}`} className="card-img-top" style={{ height: "400px", width: "100%" }} />
+                    <img src={`${API_URL}/img/videogames/${c.image}`} className="card-img-top" style={{ height: "400px", width: "100%" }} />
                     <div className="card-body">
                       <p className="card-text"><strong>{c.title}</strong></p>
                       <p className="card-text"><strong>Price:</strong> {c.price}€</p>
@@ -76,7 +76,7 @@ const Homepage = () => {
               <div className="col-12 col-md-6 col-lg-4 text-center" key={c.id}>
                 <div className="card">
                   <Link to={`/detailpage/${c.slug}`}>
-                    <img src={`http://${API_URL}/img/videogames/${c.image}`} className="card-img-top" style={{ height: "400px", width: "100%" }} />
+                    <img src={`${API_URL}/img/videogames/${c.image}`} className="card-img-top" style={{ height: "400px", width: "100%" }} />
                     <div className="card-body">
                       <p className="card-text"><strong>{c.title}</strong></p>
                       <p className="card-text"><strong>Price:</strong> {c.price}€</p>
