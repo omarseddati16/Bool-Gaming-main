@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Server attivo');
+  res.send('Server attivo!');
 });
 
 app.use('/videogames', routers)
