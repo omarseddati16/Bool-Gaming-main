@@ -7,9 +7,10 @@ const SearchPage = () => {
   const [videogames, setVideogames] = useState([])
   const [search, setSearch] = useState("");
   const naviga = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const fetchVideogames = () => {
-    axios.get("http://bool-gaming-main-production.up.railway.app/videogames")
+    axios.get(`${API_URL}/videogames`)
       .then((resp) => {
         setVideogames(resp.data);
       })
@@ -36,7 +37,7 @@ const SearchPage = () => {
             <div className="col-12 col-md-6 col-lg-4 text-center" key={videogame.id}>
               <div className="card">
                 <Link to={`/detailpage/${videogame.slug}`}>
-                  <img src={`http://localhost:3000/img/videogames/${videogame.image}`} className="card-img-top" style={{ height: "500px", width: "100%" }} />
+                  <img src={`${API_URL}/img/videogames/${videogame.image}`} className="card-img-top" style={{ height: "500px", width: "100%" }} />
                   <div className="card-body">
                     <p className="card-text"><strong>{videogame.title}</strong></p>
                     <p className="card-text"><strong>Price:</strong> {videogame.price}€</p>
